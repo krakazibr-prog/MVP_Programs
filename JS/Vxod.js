@@ -194,7 +194,7 @@
         
         // Применяем красноватый эффект на кнопку и переходим на меню.html
         setTimeout(() => {
-            applyRedGlowAndRedirect(loginBtn, 'меню.html');
+            applyRedGlowAndRedirect(loginBtn, 'регис.htmll');
         }, 400);
     }
     
