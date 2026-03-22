@@ -235,7 +235,7 @@
     if (registerLink) {
         registerLink.addEventListener('click', function(e) {
             e.preventDefault();
-            window.location.href = 'index.html';
+            window.location.href = 'меню.html';
         });
     }
     
