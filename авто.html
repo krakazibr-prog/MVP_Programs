@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Авторизация | Вход в аккаунт</title>
+    <!-- иконка вкладки (favicon) - logo.png -->
+    <link rel="icon" href="IMGG/logo.png" type="image/png">
+    <link rel="shortcut icon" href="IMGG/logo.png" type="image/png">
+    <link rel="stylesheet" href="CSS/Vxod.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="header">
+            <!-- ЛОГОТИП СВЕРХУ (logo3.png) -->
+            <div class="logo-wrapper">
+                <img src="IMGG/logo3.png" alt="Логотип" class="logo-image" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232c3e66\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'monospace\'%3E🔐%3C/text%3E%3C/svg%3E';">
+            </div>
+            <h2 class="title-text">Авторизация</h2>
+            <div class="subhead">Войдите в личный кабинет </div>
+        </div>
+        
+        <form id="loginForm" action="javascript:void(0);">
+            <div class="input-group">
+                <label for="lastName">Фамилия</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Введите фамилию" required autocomplete="family-name">
+            </div>
+            
+            <div class="input-group">
+                <label for="firstName">Имя</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Введите имя" required autocomplete="given-name">
+            </div>
+            
+            <div class="input-group">
+                <label for="middleName">Отчество</label>
+                <input type="text" id="middleName" name="middleName" placeholder="Введите отчество" required autocomplete="additional-name">
+            </div>
+            
+            <div class="input-group">
+                <label for="employeeId">ID сотрудника</label>
+                <input type="text" id="employeeId" name="employeeId" placeholder="Введите ID сотрудника" required autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="password" name="password" placeholder="Введите пароль" required autocomplete="current-password">
+            </div>
+            
+            <button type="submit" class="generate-btn" id="loginBtn">Войти →</button>
+            
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+            <div id="infoMessage" class="info-message"></div>
+        </form>
+        
+        <div class="additional-links">
+            <a href="#" id="forgotLink">Забыли пароль?</a>
+            <a href="index.html" id="registerLink">Регистрация</a>
+        </div>
+    </div>
+    <script src="JS/Vxod.js"></script>
+</body>
+</html>
