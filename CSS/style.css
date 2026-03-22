@@ -1,0 +1,379 @@
+/* Общий сброс и базовая настройка */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+}
+
+/* Фоновое изображение как в авто.html */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('фон.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+/* Затемнение поверх фона */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: -1;
+}
+
+/* Контейнер-обертка */
+.container {
+    width: 100%;
+    max-width: 470px;
+    margin: 0 auto;
+}
+.logo-wrapper {
+    text-align: center;
+    margin-bottom: 6px;
+}
+
+.logo-wrapper img {
+    max-width: 180px;
+    height: auto;
+    display: inline-block;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper img:hover {
+    transform: scale(1.02);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    .logo-wrapper img {
+        max-width: 80px;
+    }
+    .logo-wrapper {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 450px) {
+    .logo-wrapper img {
+        max-width: 70px;
+    }
+    .logo-wrapper {
+        margin-bottom: 8px;
+    }
+}
+/* Форма — как в авто.html */
+.form {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 32px 24px 36px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeSlideUp 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+}
+
+/* Анимация появления */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовок */
+h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    background: linear-gradient(135deg, #1f2b48, #2d3a5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* Подзаголовок */
+.subhead {
+    font-size: 0.85rem;
+    color: #4a5b7a;
+    font-weight: 450;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+/* Убираем старый after */
+h2::after {
+    display: none;
+}
+
+/* Стили для всех label */
+.form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #1e2a3e;
+    font-weight: 590;
+    font-size: 0.9rem;
+    letter-spacing: -0.2px;
+}
+
+/* Первый label сверху без большого отступа */
+.form label:first-of-type {
+    margin-top: 0;
+}
+
+/* Все поля ввода */
+.form input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    outline: none;
+    color: #0f172a;
+    font-weight: 480;
+}
+
+.form input:focus {
+    border-color: #4f46e5;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* Плейсхолдеры */
+.form input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 0.95rem;
+}
+
+/* Кнопка регистрации — в стиле авто.html */
+.form button {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: linear-gradient(105deg, #2c3e66 0%, #1f2b48 100%);
+    color: white;
+    font-size: 1rem;
+    font-weight: 620;
+    border: none;
+    border-radius: 44px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.form button:hover {
+    background: linear-gradient(105deg, #374a77 0%, #2c3e66 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Красное свечение при нажатии (как в авто.html) */
+.form button.red-glow {
+    background: linear-gradient(105deg, #b91c1c 0%, #9b2c2c 100%);
+    box-shadow: 0 0 15px rgba(220, 38, 38, 0.8), 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: scale(0.98);
+    transition: all 0.15s ease;
+}
+
+.form button:active {
+    transform: scale(0.97);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Ссылка внизу */
+.form p {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.85rem;
+    color: #4a5b7a;
+}
+
+.form a {
+    color: #4a5b7a;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    padding: 6px 0;
+    cursor: pointer;
+}
+
+.form a:hover {
+    color: #2c3e66;
+    text-decoration: underline;
+}
+
+/* Эффект красного свечения для ссылки */
+.form a.red-glow {
+    color: #b91c1c;
+    text-shadow: 0 0 8px rgba(220, 38, 38, 0.6);
+    transform: scale(1.05);
+    display: inline-block;
+}
+
+/* Сообщения */
+.message {
+    padding: 12px 16px;
+    border-radius: 60px;
+    margin-top: 18px;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: none;
+    transition: all 0.2s;
+}
+
+.message.show {
+    display: block;
+}
+
+.message.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 4px solid #dc2626;
+}
+
+.message.success {
+    background: #e0f2e9;
+    color: #0b5e42;
+    border-left: 4px solid #10b981;
+}
+
+.message.info {
+    background: #fff3e0;
+    color: #b45309;
+    border-left: 4px solid #f97316;
+}
+
+/* Автозаполнение */
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover,
+.form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+    box-shadow: 0 0 0px 1000px #ffffff inset;
+    border-radius: 20px;
+    border-color: #e2e8f0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+    
+    .form {
+        padding: 28px 20px 32px;
+        border-radius: 28px;
+        max-width: 100%;
+    }
+    
+    h2 {
+        font-size: 1.65rem;
+    }
+    
+    .subhead {
+        font-size: 0.8rem;
+        margin-bottom: 24px;
+    }
+    
+    .form label {
+        font-size: 0.85rem;
+    }
+    
+    .form input {
+        padding: 13px 16px;
+        font-size: 0.95rem;
+        border-radius: 18px;
+    }
+    
+    .form button {
+        padding: 14px;
+        font-size: 1rem;
+        border-radius: 40px;
+    }
+    
+    .form p {
+        margin-top: 24px;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 450px) {
+    .form {
+        padding: 24px 18px 28px;
+        border-radius: 24px;
+    }
+    
+    h2 {
+        font-size: 1.45rem;
+    }
+    
+    .subhead {
+        font-size: 0.75rem;
+    }
+    
+    .form input {
+        padding: 12px 14px;
+        border-radius: 16px;
+    }
+}
+
+@media (max-width: 360px) {
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    .subhead {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 320px) {
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .form button {
+        cursor: default;
+    }
+    
+    .form a {
+        padding: 8px 0;
+        display: inline-block;
+    }
+}
